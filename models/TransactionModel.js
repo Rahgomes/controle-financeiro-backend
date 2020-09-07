@@ -12,6 +12,6 @@ const transactionSchema = db.mongoose.Schema({
   type: { type: String, required: true }
 });
 
-const TransactionModel = db.mongoose.model('transaction', transactionSchema, 'transaction');
+const TransactionModel = db.mongoose.model('transaction', transactionSchema);
 
 module.exports = TransactionModel;

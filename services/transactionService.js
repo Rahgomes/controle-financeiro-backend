@@ -7,13 +7,14 @@
 // descobrir esse erro :-/
 const TransactionModel = require('../models/TransactionModel');
 
-const getTest = async (req, res) => {
+const getYearMonth = async (req, res) => {
+    const contentYearMonth = req.query.period;
     try {
-        const getData = await TransactionModel.find();
+        const getData = await TransactionModel.find({ yearMonth: contentYearMonth });
         res.send(getData);
     } catch (e) {
         res.send('Erro no GetTest: ' + e);
     }
 }
 
-module.exports = { getTest };
+module.exports = { getYearMonth };

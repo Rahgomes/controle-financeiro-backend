@@ -3,13 +3,13 @@ const cors = require('cors');
 const transactionRouter = require('./routes/routes');
 const path = require('path');
 const db = require('./models/index');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 
 /**
  * Faz a leitura do arquivo
  * ".env" por padrão
  */
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 app.use(cors());
