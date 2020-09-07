@@ -8,12 +8,12 @@
 const TransactionModel = require('../models/TransactionModel');
 
 const getTest = async (req, res) => {
-    try{
-        const getData = await TransactionModel.find({});
+    try {
+        const getData = await TransactionModel.find();
         res.send(getData);
-    } catch(e) {
+    } catch (e) {
         res.send('Erro no GetTest: ' + e);
     }
 }
 
-module.exports = getTest;
+module.exports = { getTest };

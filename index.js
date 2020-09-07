@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
-const routes = require('./routes/routes');
+const transactionRouter = require('./routes/routes');
 const path = require('path');
 const db = require('./models/index');
 const dotenv = require('dotenv');
@@ -34,7 +33,7 @@ app.get('/api/', (_, response) => {
 /**
  * Rotas principais do app
  */
-app.use('/api/transaction', routes);
+app.use('/api/transaction', transactionRouter);
 
 /**
  * Conexão ao Banco de Dados
@@ -56,7 +55,7 @@ db.mongoose.connect(
   }
 );
 
-const { connection } = mongoose;
+const { connection } = db.mongoose;
 
 connection.once('open', () => {
   connectedToMongoDB = true;

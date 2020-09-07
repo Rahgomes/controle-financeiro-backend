@@ -9,10 +9,9 @@ const transactionSchema = db.mongoose.Schema({
   day: { type: Number, required: true },
   yearMonth: { type: String, required: true },
   yearMonthDay: { type: String, required: true },
-  type: { type: String, required: true },
+  type: { type: String, required: true }
 });
 
 const TransactionModel = db.mongoose.model('transaction', transactionSchema, 'transaction');
-console.log(TransactionModel);
 
 module.exports = TransactionModel;
