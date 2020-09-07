@@ -3,13 +3,6 @@ const cors = require('cors');
 const transactionRouter = require('./routes/routes');
 const path = require('path');
 const db = require('./models/index');
-// const dotenv = require('dotenv');
-
-/**
- * Faz a leitura do arquivo
- * ".env" por padrão
- */
-// dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -55,18 +48,8 @@ db.mongoose.connect(
   }
 );
 
-const { connection } = db.mongoose;
+const APP_PORT = process.env.PORT || process.env.LOCAL_PORT;
 
-connection.once('open', () => {
-  connectedToMongoDB = true;
-  console.log('Conectado ao MongoDB');
-
-  /**
-   * Definição de porta e
-   * inicialização do app
-   */
-  const APP_PORT = process.env.PORT || process.env.LOCAL_PORT;
-  app.listen(APP_PORT, () => {
-    console.log(`Servidor iniciado na porta ${APP_PORT}`);
-  });
+app.listen(APP_PORT, () => {
+  console.log(`Servidor iniciado na porta ${APP_PORT}`);
 });
